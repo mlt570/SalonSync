@@ -1,0 +1,11 @@
+# Python
+backend/venv/
+__pycache__/
+*.pyc
+
+# R
+.Rhistory
+.RData
+
+# OS
+.DS_Store

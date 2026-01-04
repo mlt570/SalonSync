@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Nail Salon Analytics</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Nail Salon Analytics Dashboard</h1>
+    </header>
+
+    <main>
+      <section id="overview">
+        <h2>Overview</h2>
+        <div id="summary-cards">
+          <div>Total revenue: <span id="total-revenue"></span></div>
+          <div>Total appointments: <span id="total-appointments"></span></div>
+          <div>Average duration: <span id="average-duration"></span> min</div>
+        </div>
+        <canvas id="revenue-chart"></canvas>
+        <canvas id="service-chart"></canvas>
+      </section>
+
+      <section id="appointments">
+        <h2>Recent appointments</h2>
+        <table id="appointments-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Service</th>
+              <th>Tech</th>
+              <th>Price</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,11 +1,21 @@
 from fastapi import FastAPI, Query
 from typing import List, Optional
+from fastapi.middleware.cors import CORSMiddleware
 
 from models import Appointment, SummaryStats
 import queries
 
 
 app = FastAPI(title="Nail Salon Analytics API")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 @app.get("/health")
 def health():

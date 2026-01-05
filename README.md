@@ -82,9 +82,12 @@ All Recent Appointments
 <p align="center"> <img src="images/all-recent-appts.png" width="700"> </p>
 Displays a consolidated view of the most recent appointments across all technicians and services.
 
-Appointments per Technician
+Appointments per Individual Technician
 <p align="center"> <img src="images/appointments-per-nailtech.png" width="700"> </p>
-Shows each nail tech's appointments.
+Shows data on individual nail tech's appointments.
+
+
+
 
 
 

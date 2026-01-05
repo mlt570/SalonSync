@@ -55,7 +55,23 @@ uvicorn main:app --reload
 API will run at:
 http://localhost:8000
 
+Frontend
+cd frontend
+npx serve
 
 
+Running with Docker
+cd docker
+docker compose up --build
+
+This starts:
+- PostgreSQL
+- FastAPI backend
+
+Cloud Deployment
+
+- Backend API deployed to Google Cloud Run
+- Database hosted on Google Cloud SQL
+- Secure Cloud Run → Cloud SQL connection via socket
 
 

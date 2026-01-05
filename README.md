@@ -86,7 +86,9 @@ Appointments per Individual Technician
 <p align="center"> <img src="images/appointments-per-nailtech.png" width="700"> </p>
 Shows data on individual nail tech's appointments.
 
-
+Individual Technician Appointments
+<p align="center"> <img src="images/individual-nailtech-appts.png" width="700"> </p>
+Breakdown of appointment counts for a selected technician over time.
 
 
 

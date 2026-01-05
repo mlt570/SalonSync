@@ -2,3 +2,13 @@ appointment_id,date,start_time,service_type,technician,duration_minutes,price,ti
 1,2025-03-01,10:00,Regular Manicure,Amy,45,25.00,5.00,completed
 2,2025-03-01,11:00,Gel Manicure,Bella,60,40.00,8.00,completed
 3,2025-03-01,12:00,Pedicure,Amy,50,35.00,7.00,no_show
+4,2025-03-02,09:30:00,Regular Manicure,Amy,45,25.0,4.0,completed
+5,2025-03-02,10:30:00,Pedicure,Clara,55,38.0,6.0,completed
+6,2025-03-02,11:30:00,Gel Manicure,Bella,60,42.0,8.0,completed
+7,2025-03-03,09:00:00,Pedicure,Amy,50,35.0,,cancelled
+8,2025-03-03,10:00:00,Regular Manicure,Clara,45,27.0,5.0,completed
+9,2025-03-03,11:00:00,Gel Manicure,Bella,60,45.0,10.0,completed
+10,2025-03-03,13:00:00,Pedicure,Clara,55,40.0,7.0,completed
+11,2025-03-04,09:30:00,Regular Manicure,Amy,45,26.0,4.0,completed
+12,2025-03-04,10:30:00,Gel Manicure,Bella,60,44.0,9.0,completed
+13,2025-03-04,11:30:00,Pedicure,Clara,55,39.0,6.0,completed

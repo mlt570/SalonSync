@@ -81,23 +81,21 @@ These dashboards visualize appointment activity, service trends, and technician 
 
 <p align="center"> <img src="images/all-recent-appts.png" width="700"> </p>
 
-
 <p align="center"> <img src="images/appointments-per-nailtech.png" width="700"> </p>
-
 
 <p align="center"> <img src="images/individual-nailtech-appts.png" width="700"> </p>
 
-
 <p align="center"> <img src="images/individual-nailtech-dashboard.png" width="700"> </p>
-
 
 <p align="center"> <img src="images/revenue-per-technician.png" width="700"> </p>
 
-
 <p align="center"> <img src="images/service-popularity.png" width="700"> </p>
 
-
 <p align="center"> <img src="images/total-appts-per-day.png" width="700"> </p>
+
+<p align="center"> <img src="images/total-nailtech-revenue.png" width="700"> </p>
+
+<p align="center"> <img src="images/total-service-popularity.png" width="700"> </p>
 
 
 

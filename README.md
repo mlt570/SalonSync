@@ -29,13 +29,6 @@ Features
 - Cloud-hosted API with managed database
 - Dockerized backend for reproducible deployments
 
-Architecture Overview:
-Frontend (static HTML/JS)
-        ↓ fetch()
-FastAPI API (Cloud Run)
-        ↓
-PostgreSQL (Cloud SQL)
-
 
 Running Locally (No Docker)
 
@@ -82,9 +75,18 @@ Example API endpoints:
 /stats/service_popularity
 
 
-Screenshots:
+Screenshots of Analytics and Dashboards:
+These dashboards visualize appointment activity, service trends, and technician performance using data stored in PostgreSQL and aggregated via SQL queries and R analytics.
 
+All Recent Appointments
 <p align="center"> <img src="images/all-recent-appts.png" width="700"> </p>
+Displays a consolidated view of the most recent appointments across all technicians and services.
+
+Appointments per Technician
+<p align="center"> <img src="images/appointments-per-nailtech.png" width="700"> </p>
+Shows each nail tech's appointments.
+
+
 
 
 R Analytics Examples

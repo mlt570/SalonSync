@@ -14,6 +14,13 @@
     <main>
       <section id="overview">
         <h2>Overview</h2>
+        <div id="filters">
+            <label for="tech-filter">Technician</label>
+            <select id="tech-filter">
+                <option value="">All</option>
+            </select>
+        </div>
+
         <div id="summary-cards">
           <div>Total revenue: <span id="total-revenue"></span></div>
           <div>Total appointments: <span id="total-appointments"></span></div>
@@ -21,6 +28,8 @@
         </div>
         <canvas id="revenue-chart"></canvas>
         <canvas id="service-chart"></canvas>
+        <canvas id="revenue-by-tech-chart"></canvas>
+        <canvas id="utilization-chart"></canvas>    
       </section>
 
       <section id="appointments">

@@ -92,3 +92,24 @@ td {
 tbody tr:hover {
   background-color: rgba(255, 255, 255, 0.03);
 }
+
+#filters {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0 6px;
+}
+
+#filters label {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+#tech-filter {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  border-radius: 10px;
+  outline: none;
+}

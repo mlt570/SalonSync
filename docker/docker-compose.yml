@@ -14,5 +14,21 @@ services:
       - db_data:/var/lib/postgresql/data
       - ../data:/data
 
+  api:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.api
+    container_name: nail_salon_api
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: nails
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+
 volumes:
   db_data:

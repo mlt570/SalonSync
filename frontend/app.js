@@ -1,108 +1,143 @@
 // frontend/app.js
 const API_BASE = "http://localhost:8000";
 
-// Dark theme colors for Chart.js
+/* =========================
+   Soft dark-mode color theme
+   ========================= */
 const chartTheme = {
-  text: "#e5e7eb",
-  muted: "#9ca3af",
-  grid: "#374151",
-  barFill: "rgba(96, 165, 250, 0.70)",
-  barBorder: "rgba(96, 165, 250, 1)",
+  text: "#e5e7eb",          // light gray text
+  muted: "#9ca3af",         // muted axis labels
+  grid: "rgba(255,255,255,0.08)",
+
+  revenue: {
+    fill: "rgba(144, 231, 160, 0.35)",   // soft blue
+    border: "rgba(99, 179, 237, 0.9)",
+  },
+
+  service: {
+    fill: "rgba(250, 139, 174, 0.35)",  // soft purple
+    border: "rgba(237, 139, 250, 0.9)",
+  },
 };
 
-function makeBarChartConfig({ labels, values, label }) {
+function baseBarOptions() {
   return {
-    type: "bar",
-    data: {
-      labels,
-      datasets: [
-        {
-          label,
-          data: values,
-          backgroundColor: chartTheme.barFill,
-          borderColor: chartTheme.barBorder,
-          borderWidth: 1,
-        },
-      ],
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          labels: { color: chartTheme.text },
-        },
-        tooltip: {
-          titleColor: chartTheme.text,
-          bodyColor: chartTheme.text,
+    responsive: true,
+    plugins: {
+      legend: {
+        labels: {
+          color: chartTheme.text,
         },
       },
-      scales: {
-        x: {
-          ticks: { color: chartTheme.muted },
-          grid: { color: chartTheme.grid },
-        },
-        y: {
-          ticks: { color: chartTheme.muted },
-          grid: { color: chartTheme.grid },
-        },
+      tooltip: {
+        backgroundColor: "#111827",
+        titleColor: chartTheme.text,
+        bodyColor: chartTheme.text,
+        borderColor: chartTheme.grid,
+        borderWidth: 1,
+      },
+    },
+    scales: {
+      x: {
+        ticks: { color: chartTheme.muted },
+        grid: { color: chartTheme.grid },
+      },
+      y: {
+        ticks: { color: chartTheme.muted },
+        grid: { color: chartTheme.grid },
       },
     },
   };
 }
 
+/* =========================
+   Summary cards
+   ========================= */
 async function loadSummary() {
   const res = await fetch(`${API_BASE}/stats`);
   const data = await res.json();
-  document.getElementById("total-revenue").textContent = Number(data.total_revenue).toFixed(2);
-  document.getElementById("total-appointments").textContent = data.total_appointments;
-  document.getElementById("average-duration").textContent = Number(data.average_duration).toFixed(1);
+
+  document.getElementById("total-revenue").textContent =
+    Number(data.total_revenue).toFixed(2);
+
+  document.getElementById("total-appointments").textContent =
+    data.total_appointments;
+
+  document.getElementById("average-duration").textContent =
+    Number(data.average_duration).toFixed(1);
 }
 
-let revenueChartInstance = null;
+/* =========================
+   Revenue chart
+   ========================= */
+let revenueChart;
+
 async function loadRevenueChart() {
   const res = await fetch(`${API_BASE}/stats/revenue_by_day`);
   const data = await res.json();
 
-  const labels = data.map((d) => d.date);
-  const values = data.map((d) => Number(d.total_revenue));
+  const labels = data.map(d => d.date);
+  const values = data.map(d => Number(d.total_revenue));
 
   const ctx = document.getElementById("revenue-chart").getContext("2d");
 
-  // If you refresh/re-init, destroy old chart to avoid duplicates
-  if (revenueChartInstance) revenueChartInstance.destroy();
+  if (revenueChart) revenueChart.destroy();
 
-  revenueChartInstance = new Chart(
-    ctx,
-    makeBarChartConfig({
+  revenueChart = new Chart(ctx, {
+    type: "bar",
+    data: {
       labels,
-      values,
-      label: "Revenue by day",
-    })
-  );
+      datasets: [
+        {
+          label: "Revenue by day",
+          data: values,
+          backgroundColor: chartTheme.revenue.fill,
+          borderColor: chartTheme.revenue.border,
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: baseBarOptions(),
+  });
 }
 
-let serviceChartInstance = null;
+/* =========================
+   Service popularity chart
+   ========================= */
+let serviceChart;
+
 async function loadServiceChart() {
   const res = await fetch(`${API_BASE}/stats/service_popularity`);
   const data = await res.json();
 
-  const labels = data.map((d) => d.service_type);
-  const values = data.map((d) => Number(d.count));
+  const labels = data.map(d => d.service_type);
+  const values = data.map(d => Number(d.count));
 
   const ctx = document.getElementById("service-chart").getContext("2d");
 
-  if (serviceChartInstance) serviceChartInstance.destroy();
+  if (serviceChart) serviceChart.destroy();
 
-  serviceChartInstance = new Chart(
-    ctx,
-    makeBarChartConfig({
+  serviceChart = new Chart(ctx, {
+    type: "bar",
+    data: {
       labels,
-      values,
-      label: "Service popularity",
-    })
-  );
+      datasets: [
+        {
+          label: "Service popularity",
+          data: values,
+          backgroundColor: chartTheme.service.fill,
+          borderColor: chartTheme.service.border,
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: baseBarOptions(),
+  });
 }
 
+/* =========================
+   Appointments table
+   ========================= */
 async function loadAppointments() {
   const res = await fetch(`${API_BASE}/appointments?limit=50`);
   const data = await res.json();
@@ -110,7 +145,7 @@ async function loadAppointments() {
   const tbody = document.querySelector("#appointments-table tbody");
   tbody.innerHTML = "";
 
-  data.forEach((row) => {
+  data.forEach(row => {
     const tr = document.createElement("tr");
     tr.innerHTML = `
       <td>${row.date}</td>
@@ -124,6 +159,9 @@ async function loadAppointments() {
   });
 }
 
+/* =========================
+   Init
+   ========================= */
 async function init() {
   await loadSummary();
   await loadRevenueChart();

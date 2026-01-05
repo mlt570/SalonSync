@@ -90,6 +90,9 @@ Individual Technician Appointments
 <p align="center"> <img src="images/individual-nailtech-appts.png" width="700"> </p>
 Breakdown of appointment counts for a selected technician over time.
 
+Individual Technician Dashboard
+<p align="center"> <img src="images/individual-nailtech-dashboard.png" width="700"> </p>
+A focused dashboard combining appointment volume and revenue metrics for a single nail technician.
 
 
 

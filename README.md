@@ -85,12 +85,25 @@ Example API endpoints:
 Screenshots:
 Dashboard Overview
 
-(Insert screenshot here)
 
 Revenue & Service Charts
 
-(Insert screenshot here)
 
 Appointments Table
 
-(Insert screenshot here)
+
+R Analytics Examples
+Revenue by day and service popularity plots were generated using R:
+library(ggplot2)
+library(dplyr)
+
+appointments <- read.csv("../data/appointments.csv")
+
+revenue_by_day <- appointments %>%
+  filter(status == "completed") %>%
+  mutate(total = price + ifelse(is.na(tip), 0, tip)) %>%
+  group_by(date) %>%
+  summarise(total_revenue = sum(total))
+
+ggplot(revenue_by_day, aes(x = as.Date(date), y = total_revenue)) +
+  geom_col()

@@ -36,7 +36,26 @@ FastAPI API (Cloud Run)
         ↓
 PostgreSQL (Cloud SQL)
 
+
 Running Locally (No Docker)
+
+Backend
+cd backend
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+export DB_HOST=localhost
+export DB_NAME=nails
+export DB_USER=postgres
+export DB_PASSWORD=postgres
+
+uvicorn main:app --reload
+
+API will run at:
+http://localhost:8000
+
+
 
 
 

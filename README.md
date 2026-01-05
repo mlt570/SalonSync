@@ -83,13 +83,8 @@ Example API endpoints:
 
 
 Screenshots:
-Dashboard Overview
 
-
-Revenue & Service Charts
-
-
-Appointments Table
+<p align="center"> <img src="images/all-recent-appts.png" width="700"> </p>
 
 
 R Analytics Examples

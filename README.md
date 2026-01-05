@@ -82,4 +82,15 @@ Example API endpoints:
 /stats/service_popularity
 
 
+Screenshots:
+Dashboard Overview
 
+(Insert screenshot here)
+
+Revenue & Service Charts
+
+(Insert screenshot here)
+
+Appointments Table
+
+(Insert screenshot here)

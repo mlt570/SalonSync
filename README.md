@@ -74,4 +74,12 @@ Cloud Deployment
 - Database hosted on Google Cloud SQL
 - Secure Cloud Run → Cloud SQL connection via socket
 
+Example API endpoints:
+/health
+/appointments
+/stats
+/stats/revenue_by_day
+/stats/service_popularity
+
+
 

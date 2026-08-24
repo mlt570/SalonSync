@@ -115,7 +115,6 @@ revenue_by_day <- appointments %>%
 ggplot(revenue_by_day, aes(x = as.Date(date), y = total_revenue)) +
   geom_col()
 
-(Insert R plot screenshots here)
 What This Project Demonstrates
 - REST API design with FastAPI
 - SQL analytics and schema design
